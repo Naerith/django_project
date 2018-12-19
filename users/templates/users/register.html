@@ -1,0 +1,35 @@
+<!-- Div etiketi bir HTML belgesi içinde bir bölüm belirtmek için kullanılır. Div html içinde verileri
+sağa, sola, yukarı veya aşağıya CSS yardımı ile hizalamaya yarar.
+Kısacası div'leri birer kutu olarak düşünebiliriz. Metinler, Resimler ve videolar div içinde yerleştirilebilir. -->
+
+<!-- <form burada da input almak için site ziyaretçilerinden -->
+
+<!-- We have to use a CSRF thing or it won't work. Its a protection for the form.  -->
+
+<!-- HTML <FIELDSET> etiketi, form üzerinde birbirleri ile ilişkili girişler, etiketler ve diğer kontrollerin gruplandırılmasını sağlar. -->
+
+<!-- Legend etiketi fieldset için başlık tanımlar. mb-4 de margin bottom 4 -->
+
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+      <div class="conten-section">
+        <form method="POST">
+          {% csrf_token %}
+          <fieldset class="form-group">   <!-- Just a bootsrap class -->
+            <legend class="border-bottom mb-4">
+            Join Today
+            </legend>
+            {{ form|crispy }} <!-- We accessed the form and it will print out all our form. as_p is for making paragraph blankets etc. in form -->
+          </fieldset>
+          <div class="form-group">
+            <button class="btn btn-outline-info" type='submit'> Sign Up </button>
+          </div>
+        </form>
+        <div class="border-top pt-3">
+          <small class="text-muted"> <!-- Small text demek? -->
+          Already Have An Account <a class="ml-2" href="{% url 'login' %}">Sign In</a>  <!-- Sağdaki kod yanına 2 birim uzaklıkta sign in linki ekliyor. -->
+          </small>
+        </div>
+      </div>
+{% endblock %}

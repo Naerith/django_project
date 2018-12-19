@@ -1,0 +1,12 @@
+{% extends "blog/base.html" %}
+{% block content %}
+
+
+        <h2> You have been logged out. </h2>
+        <div class="border-top pt-3">
+          <small class="text-muted"> <!-- Small text demek? -->
+             <a href="{% url 'login' %}">Log In Again</a>  <!-- Sağdaki kod yanına 2 birim uzaklıkta sign in linki ekliyor. -->
+          </small>
+        </div>
+
+{% endblock %}
